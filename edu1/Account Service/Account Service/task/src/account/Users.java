@@ -1,18 +1,28 @@
 package account;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.*;
-import java.util.HashMap;
 
+@Entity(name = "user")
 public class Users {
 
+    @Id
+    @Column
+    private long userId;
+
+    @Column
     @NotNull(message = "Name cannot be null")
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
+    @Column
     @NotNull(message = "Lastname cannot be null")
     @NotBlank(message = "Lastname cannot be blank")
     private String lastname;
 
+    @Column
     @NotNull(message = "Email cannot be null")
     @NotBlank(message = "Email cannot be blank")
     @Email(message = "Email invalid format")
