@@ -10,13 +10,13 @@ public class BusinessController {
         return "auth is tested";
     }
 
-    @PostMapping("api/acct/payments")
-    public String uploadPayment() {
-        return "user is tested";
-    }
-
-    @PutMapping("api/acct/payments")
-    public String updatePayment() {
-        return "admin is tested";
-    }
+//    @PostMapping("api/acct/payments")
+//    public String uploadPayment() {
+//        return "user is tested";
+//    }
+//
+//    @PutMapping("api/acct/payments")
+//    public String updatePayment() {
+//        return "admin is tested";
+//    }
 }
