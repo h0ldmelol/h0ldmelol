@@ -1,4 +1,4 @@
-package account;
+package account.controller;
 
 import org.springframework.web.bind.annotation.*;
 
