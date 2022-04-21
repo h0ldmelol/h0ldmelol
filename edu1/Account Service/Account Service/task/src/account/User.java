@@ -12,6 +12,7 @@ public class User {
     @Column
     private long userId;
 
+    @Column
     private String role;
 
     @Column
@@ -31,6 +32,7 @@ public class User {
     @Pattern(regexp = ".+@acme.com", message = "Email invalid format")
     private String email;
 
+    @Column
     @NotNull(message = "Name cannot be null")
     @NotBlank(message = "Name cannot be blank")
     @Size(min = 1, max = 100, message = "Password length must be 12 chars minimum!")
