@@ -23,17 +23,17 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
     @Autowired
     RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(cryptConf.passwordEncoder());
-        auth
-                .inMemoryAuthentication()
-                .withUser("admin").password("admin1").roles("ADMIN")
-                .and().passwordEncoder(NoOpPasswordEncoder.getInstance());
-
-    }
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth
+//                .userDetailsService(userDetailsService)
+//                .passwordEncoder(cryptConf.passwordEncoder());
+//        auth
+//                .inMemoryAuthentication()
+//                .withUser("admin").password("admin1").roles("ADMIN")
+//                .and().passwordEncoder(NoOpPasswordEncoder.getInstance());
+//
+//    }
 
 //    @Override
 //    protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -50,19 +50,22 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
 //                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //    }
 
-//    @Override
-//    public void configure(HttpSecurity http) throws Exception {
-//        http.httpBasic()
-//                .authenticationEntryPoint(restAuthenticationEntryPoint)
-//                .and()
-//                .csrf().disable().headers().frameOptions().disable()
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers(HttpMethod.POST, "/api/signup").permitAll()
-//                .and()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//    }
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.httpBasic()
+                .authenticationEntryPoint(restAuthenticationEntryPoint)
+                .and()
+                .csrf().disable().headers().frameOptions().disable()
+                .and()
+                .authorizeRequests()
+                .mvcMatchers(HttpMethod.POST, "/api/signup").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    }
 
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {

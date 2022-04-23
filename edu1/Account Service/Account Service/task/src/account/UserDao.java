@@ -46,7 +46,7 @@ public class UserDao extends Exception {
         return map;
     }
 
-    public void save(User user) {
+    public void save() {
         new User();
     }
 

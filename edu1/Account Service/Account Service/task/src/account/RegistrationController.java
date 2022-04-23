@@ -3,9 +3,7 @@ package account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -17,8 +15,9 @@ public class RegistrationController {
     PasswordEncoder encoder;
 
     @PostMapping("api/signup")
-    public void signUp(@Valid @RequestBody User user) {
-        user.setPassword(encoder.encode(user.getPassword()));
-        newUser.save(user);
+    public void signUp(@Valid @RequestParam String name, @RequestParam String lastname, @RequestParam String email, @RequestParam String password) {
+        User user  = new User(name, lastname, email, encoder.encode(password));
+        user.getEmail();
+
     }
 }

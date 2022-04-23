@@ -4,9 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.List;
@@ -15,11 +13,8 @@ import java.util.List;
 public class User implements UserDetails {
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-    @Column
-    private String role;
 
     @Column
     @NotNull(message = "Name cannot be null")
@@ -48,21 +43,13 @@ public class User implements UserDetails {
     private String username;
 
 
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+        this.username = name;
     }
 
     public String getLastname() {
