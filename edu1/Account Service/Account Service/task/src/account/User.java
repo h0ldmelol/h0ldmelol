@@ -1,6 +1,7 @@
 package account;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity(name = "user")
 public class User implements UserDetails {
@@ -41,6 +43,10 @@ public class User implements UserDetails {
     @NotBlank(message = "Name cannot be blank")
     @Size(min = 1, max = 100, message = "Password length must be 12 chars minimum!")
     private String password;
+
+
+    private String username;
+
 
 
     public String getRole() {
@@ -91,22 +97,22 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public void setPassword(String password) {
@@ -114,4 +120,12 @@ public class User implements UserDetails {
     }
 
     public User() {}
+
+    public User(String name, String lastname, String email, String password) {
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+    }
+
 }

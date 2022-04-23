@@ -18,7 +18,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsService userDetailsService;
-
+    @Autowired
+    BCryptConf cryptConf;
     @Autowired
     RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
@@ -26,7 +27,7 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(getEncoder());
+                .passwordEncoder(cryptConf.passwordEncoder());
         auth
                 .inMemoryAuthentication()
                 .withUser("admin").password("admin1").roles("ADMIN")
@@ -34,14 +35,20 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests().anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .and()
-                .httpBasic();
-    }
+//    @Override
+//    protected void configure(HttpSecurity httpSecurity) throws Exception {
+//        httpSecurity.httpBasic()
+//                .authenticationEntryPoint(restAuthenticationEntryPoint) // Handle auth error
+//                .and()
+//                .csrf().disable().headers().frameOptions().disable() // for Postman, the H2 console
+//                .and()
+//                .authorizeRequests() // manage access
+//                .antMatchers(HttpMethod.POST, "/api/signup").permitAll()
+//                // other matchers
+//                .and()
+//                .sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//    }
 
 //    @Override
 //    public void configure(HttpSecurity http) throws Exception {
@@ -76,10 +83,4 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .httpBasic();
 //    }
-
-    @Bean
-    public PasswordEncoder getEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
 }
