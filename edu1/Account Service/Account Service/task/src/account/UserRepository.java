@@ -11,7 +11,6 @@ import java.util.concurrent.ConcurrentMap;
 
 @Component
 public class UserRepository {
-    final private Map<String, User> users = new ConcurrentHashMap<>();
 
     public User findUserByUserName(String username) {
         return users.get(username);

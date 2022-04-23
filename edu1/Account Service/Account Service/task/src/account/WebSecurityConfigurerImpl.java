@@ -35,18 +35,27 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.httpBasic()
-                .authenticationEntryPoint(restAuthenticationEntryPoint)
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests().anyRequest().authenticated()
                 .and()
-                .csrf().disable().headers().frameOptions().disable()
+                .formLogin()
                 .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/signup").permitAll()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .httpBasic();
     }
+
+//    @Override
+//    public void configure(HttpSecurity http) throws Exception {
+//        http.httpBasic()
+//                .authenticationEntryPoint(restAuthenticationEntryPoint)
+//                .and()
+//                .csrf().disable().headers().frameOptions().disable()
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers(HttpMethod.POST, "/api/signup").permitAll()
+//                .and()
+//                .sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//    }
 
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
