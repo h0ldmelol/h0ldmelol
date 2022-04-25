@@ -17,7 +17,6 @@ public class RegistrationController {
     @PostMapping("api/signup")
     public void signUp(@Valid @RequestParam String name, @RequestParam String lastname, @RequestParam String email, @RequestParam String password) {
         User user  = new User(name, lastname, email, encoder.encode(password));
-        user.getEmail();
-
+        System.out.println(user.getEmail());;
     }
 }

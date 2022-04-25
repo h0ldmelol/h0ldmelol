@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.List;
 
-@Entity(name = "user")
+@Entity(name = "users")
 public class User implements UserDetails {
 
     @Id
