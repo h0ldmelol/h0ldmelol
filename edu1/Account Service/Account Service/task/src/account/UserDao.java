@@ -18,7 +18,7 @@ public class UserDao extends Exception {
 
 
     public void save(User user) {
-        jdbcTemplate.update("INSERT INTO users VALUES (?, ?, ?, ?)", user.getUsername(), user.getLastname(), user.getEmail(), user.getPassword());
+        jdbcTemplate.update("INSERT INTO users VALUES (?, ?, ?, ?)", user.getName(), user.getLastname(), user.getEmail(), user.getPassword());
     }
 
     public void update(int id, User updatedUser) {

@@ -385,19 +385,19 @@ files:
 - name: src/account/WebSecurityConfigurerImpl.java
   visible: true
   learner_created: true
-- name: src/account/BusinessController.java
-  visible: true
-  learner_created: true
 - name: src/account/RegistrationController.java
   visible: true
   learner_created: true
-- name: src/account/ServiceController.java
+- name: src/account/Role.java
   visible: true
   learner_created: true
-- name: src/account/BCryptConf.java
+- name: src/account/UserRepository.java
   visible: true
   learner_created: true
-- name: src/account/UserMapper.java
+- name: src/account/RoleRepository.java
+  visible: true
+  learner_created: true
+- name: src/account/UserService.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16602#comment
