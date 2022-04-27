@@ -13,7 +13,9 @@ import java.io.IOException;
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, org.springframework.security.core.AuthenticationException authException) throws IOException, ServletException {
+    public void commence(HttpServletRequest request,
+                         HttpServletResponse response,
+                         org.springframework.security.core.AuthenticationException authException) throws IOException {
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
     }
 }

@@ -10,8 +10,8 @@ import javax.validation.Valid;
 @RestController
 public class RegistrationController {
 
-    @PostMapping("api/signup")
-    public void signUp(@Valid User user) {
-        new User();
+    @PostMapping("api/auth/signup")
+    public User signUp(@RequestBody @Valid User user) {
+        return new User();
     }
 }

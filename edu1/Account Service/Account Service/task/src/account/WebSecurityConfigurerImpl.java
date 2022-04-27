@@ -27,12 +27,11 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.httpBasic()
-                .authenticationEntryPoint(restAuthenticationEntryPoint)
                 .and()
                 .csrf().disable().headers().frameOptions().disable()
                 .and()
                 .authorizeRequests()
-                .mvcMatchers(HttpMethod.POST, "/api/signup").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/auth/signup").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

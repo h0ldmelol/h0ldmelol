@@ -17,14 +17,14 @@ public class UserDao extends Exception {
     }
 
 
-    public void save(User user) {
-        jdbcTemplate.update("INSERT INTO users VALUES (?, ?, ?, ?)", user.getName(), user.getLastname(), user.getEmail(), user.getPassword());
-    }
+//    public void save(User user) {
+//        jdbcTemplate.update("INSERT INTO users VALUES (?, ?, ?, ?)", user.getName(), user.getLastname(), user.getEmail(), user.getPassword());
+//    }
 
-    public void update(int id, User updatedUser) {
-        jdbcTemplate.update("UPDATE users SET name=?, lastname=?, password=? WHERE id=?",
-                updatedUser.getName(), updatedUser.getLastname(), updatedUser.getPassword(), id);
-    }
+//    public void update(int id, User updatedUser) {
+//        jdbcTemplate.update("UPDATE users SET name=?, lastname=?, password=? WHERE id=?",
+//                updatedUser.getName(), updatedUser.getLastname(), updatedUser.getPassword(), id);
+//    }
 
     public void delete(int id) {
         jdbcTemplate.update("DELETE * FROM users WHERE id=?", id);
