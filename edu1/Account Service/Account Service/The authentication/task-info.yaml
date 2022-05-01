@@ -22,23 +22,6 @@ files:
         implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.0.Final'
     }
   learner_created: false
-- name: src/account/AccountServiceApplication.java
-  visible: true
-  text: |-
-    package account;
-
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-    @SpringBootApplication
-    public class AccountServiceApplication {
-
-        public static void main(String[] args) {
-            SpringApplication.run(AccountServiceApplication.class, args);
-        }
-
-    }
-  learner_created: false
 - name: src/resources/application.properties
   visible: true
   text: |-
@@ -370,36 +353,30 @@ files:
 - name: src/resources/static/index.html
   visible: true
   learner_created: true
-- name: src/account/RestAuthenticationEntryPoint.java
+- name: src/account/AccountServiceApplication.java
   visible: true
   learner_created: true
-- name: src/account/User.java
+- name: src/account/entities/User.java
   visible: true
   learner_created: true
-- name: src/account/UserDao.java
+- name: src/account/controllers/MainController.java
   visible: true
   learner_created: true
-- name: src/account/WrongRequest.java
+- name: src/account/repositories/UserRepository.java
   visible: true
   learner_created: true
-- name: src/account/WebSecurityConfigurerImpl.java
+- name: src/account/entities/Role.java
   visible: true
   learner_created: true
-- name: src/account/RegistrationController.java
+- name: src/account/repositories/RoleRepository.java
   visible: true
   learner_created: true
-- name: src/account/Role.java
+- name: src/account/services/UserService.java
   visible: true
   learner_created: true
-- name: src/account/UserRepository.java
-  visible: true
-  learner_created: true
-- name: src/account/RoleRepository.java
-  visible: true
-  learner_created: true
-- name: src/account/UserService.java
+- name: src/account/configs/SecurityConfig.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16602#comment
-status: Unchecked
+status: Failed
 record: -1
