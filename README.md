@@ -6,4 +6,4 @@ Hi, my name is Roman.
 >- [ ] <img src="https://cdn.iconscout.com/icon/free/png-256/java-60-1174953.png" width="20"> Java
 > <img src="https://i.postimg.cc/850Pzg4X/image.png">
 >
->- [ ] <img src="https://raw.githubusercontent.com/github/explore/4479d2a2c854198cb00160f8593519c14dc3b905/topics/kotlin/kotlin.png" width="20"> Kotlin
+>- [ ] <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/ethereum/ethereum.png" width="20"> Solidity
